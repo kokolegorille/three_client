@@ -3,6 +3,7 @@ const Webpack = require("webpack")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 // Dev server
 const HtmlWebpackPlugin = require("html-webpack-plugin")
@@ -76,20 +77,26 @@ module.exports = (_env, options) => {
             ]
         },
         plugins: [
+            new CopyWebpackPlugin({
+                patterns: [
+                    {from: "./assets", to: path.join(__dirname, "dist", "assets")}
+                ]
+            }),
             new HtmlWebpackPlugin({
                 filename: "index.html",
                 template: "./src/index.html",
                 inject: "body",
             }),
             new MiniCssExtractPlugin({ filename: "./css/app.css" }),
-            new Webpack.HotModuleReplacementPlugin(),
+            new Webpack.HotModuleReplacementPlugin()
         ],
         devServer: {
             // New devserver 4 syntax!
-            // static: {
-            //     // default to public, uncomment to change path
-            //     directory: path.join(__dirname, 'dist'),
-            // },
+            static: {
+                // default to public, uncomment to change path
+                directory: path.join(__dirname, "dist"),
+            },
+            compress: true,
             client: {
                 overlay: true,
                 progress: false,

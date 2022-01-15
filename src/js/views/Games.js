@@ -13,7 +13,6 @@ import Pool from "./Pool"
 const Games = () => {
     return(
         <>
-            <h1>Games</h1>
             <nav>
                 <Link to="">Lobby</Link> | {" "}
                 <Link to="basic">Basic</Link> | {" "}
