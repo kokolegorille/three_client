@@ -4,11 +4,14 @@ html {
     margin: 0;
     box-sizing: border-box;
 }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 
 #canvas {
     position: absolute;
     top: 0;
     left: 0;
-    border: solid 1px;
+    background-color: lightgray;
     z-index: -1;
 }
