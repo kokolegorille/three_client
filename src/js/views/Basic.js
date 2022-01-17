@@ -13,8 +13,6 @@ const Basic = () => {
     useEffect(() => {
         // Start the game
         actions.start(canvas.current, width, height)
-        // actions.loadLocalPlayer("plane/microplane.glb")
-
         actions.loadPlane()
 
         // Cleanup

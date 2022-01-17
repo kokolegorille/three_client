@@ -1,8 +1,7 @@
 import { useReducer } from "react"
 import * as THREE from "three"
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 
-import Plane from "../components/plane"
+import Plane from "../components/basic/Plane"
 
 const defaultState = {
     scene: null,
@@ -102,26 +101,6 @@ const useThreeBasic = (initialState = defaultState) => {
         dispatch({type: STOP})
     }
 
-    // const loadLocalPlayer = (file) => {
-    //     const loader = new GLTFLoader().setPath("../../../assets/")
-    //     loader.load(
-    //         file,
-    //         gltf => {
-    //             const { scene } = state
-    //             scene.add(gltf.scene)
-    //             dispatch({type: SET_LOCAL_PLAYER, payload: gltf})
-    //         },
-    //         xhr => {
-    //             const progress = xhr.loaded / xhr.total
-    //             console.log(xhr.loaded, xhr.total)
-    //             console.log(progress)
-    //         },
-    //         err => {
-    //             console.log(err)
-    //         }
-    //     )
-    // }
-
     const loadPlane = () => {
         const callback = gltf => {
             const { scene } = state
@@ -147,18 +126,13 @@ const useThreeBasic = (initialState = defaultState) => {
         console.log(time)
 
         // Update local player
-        if (localPlayer) {
-            // const propeller = localPlayer.scene.getObjectByName("propeller")
-            // if (propeller) { propeller.rotateZ(1) }
-            localPlayer.update(time)
-        }
+        localPlayer && localPlayer.update(time)
 
         renderer && renderer.render(scene, camera)
     }
 
     const actions = {
         start, stop, 
-        // loadLocalPlayer, 
         loadPlane,
         resize
     }
