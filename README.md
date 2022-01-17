@@ -49,7 +49,7 @@ npm i react react-dom react-router-dom
 ## Testing
 
 ```
-cd mediapipe/
+cd three_client/
 npm i
 npm start
 ```
