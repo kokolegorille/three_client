@@ -123,7 +123,7 @@ export default class Game {
         this.active = true;
         if (this.controller) {
             this.controller.cameraBase.getWorldPosition(this.camera.position);
-            this.controller.cameraBase.getWorldQuaternion(this.camera.quaternion);    
+            this.controller.cameraBase.getWorldQuaternion(this.camera.quaternion);
         }
         // this.sfx.play('atmos');
     }
