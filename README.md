@@ -44,6 +44,7 @@ npm install -D copy-webpack-plugin
 
 ```
 npm i react react-dom react-router-dom
+npm i three three-orbitcontrols cannon
 ```
 
 ## Testing
