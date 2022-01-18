@@ -5,7 +5,8 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,5 +19,12 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": "error"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 };

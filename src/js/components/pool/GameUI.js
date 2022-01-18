@@ -19,7 +19,7 @@ class GameUI{
     } else {
       el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
     }
-  };
+  }
 
   show(elmId) {
     const node = document.getElementById(elmId);
